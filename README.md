@@ -18,3 +18,8 @@
  $ git config --global alias.lgg 'log --graph --oneline --all'
  $ git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
 ```
+
+# ADB stuff
+```bash
+ $ adb logcat | grep `adb shell ps | grep com.example.package | cut -c10-15`
+```
