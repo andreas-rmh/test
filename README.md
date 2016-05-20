@@ -80,8 +80,10 @@ set splitbelow
 ```
 
 ## Shortcuts
+```
 =       In visual mode, typing = will fix indentation of the current section. 
 gg=G    In normal mode, typing gg=G will reindent the entire file
+```
 
 ## nginx syntax
 ```bash
