@@ -126,7 +126,7 @@ and connect via
 # Create a role (user) with password
 CREATE USER userName PASSWORD 'secretPassword';
 CREATE DATABASE dbName WITH OWNER userName;
-\connect dbName;
+\connect dbName userName;
 CREATE SCHEMA schemaName;
 # Grant privileges (like the ability to create tables) on new schema to new role
 GRANT ALL ON SCHEMA schemaName TO userName;
