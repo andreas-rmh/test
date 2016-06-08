@@ -131,6 +131,8 @@ CREATE USER userName PASSWORD 'secretPassword';
 CREATE DATABASE dbName WITH OWNER userName;
 \connect dbName userName;
 CREATE SCHEMA schemaName;
+# Grant all privileges
+GRANT ALL ON DATABASE dbName TO userName;
 # Grant privileges (like the ability to create tables) on new schema to new role
 GRANT ALL ON SCHEMA schemaName TO userName;
 # Grant privileges (like the ability to insert) to tables in the new schema to the new role
