@@ -103,6 +103,9 @@ wget –quiet https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add A
 echo “deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main” >> /etc/apt/sources.list
 apt-get update && apt-get upgrade
 apt-get install postgresql-9.5
+
+# libpg-dev for pg gem
+apt-get install postgresql-server-dev-9.5
 ```
 For mint rosa use "trusty-pgdg"
 
@@ -139,4 +142,38 @@ GRANT ALL ON ALL TABLES IN SCHEMA schemaName TO userName;
 \dt list tables
 \dn list schemas
 \du list roles/users
+```
+
+## Ruby
+### Install
+```bash
+apt-get install build-essential
+# Install with ruby-install
+wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
+tar -xzvf ruby-install-0.6.0.tar.gz
+cd ruby-install-0.6.0/
+sudo make install
+
+mkdir /opt/rubies
+ruby-install --rubies-dir /opt/rubies --latest ruby 2.3.1
+
+# Use with chruby
+wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+tar -xzvf chruby-0.3.9.tar.gz
+cd chruby-0.3.9/
+make install
+
+cat >> ~/.$(basename $SHELL)rc <<EOF
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+EOF
+
+exec $SHELL 
+
+## Rails 
+### Install (rails-5.0.0.rc1)
+gem install rails --pre --no-ri --no-rdoc
+
+### Create project
+rails new myapp --database=postgresql
 ```
