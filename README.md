@@ -100,11 +100,35 @@ EOF
 ### Install
 ```bash
 wget –quiet https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add ACCC4CF8.asc
-
 echo “deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main” >> /etc/apt/sources.list
-
 apt-get update && apt-get upgrade
-
 apt-get install postgresql-9.5
 ```
+For mint rosa use "trusty-pgdg"
+
+### Configure
+```bash
+su - postgres
+psql
+```
+#### Create super user (if needed)
+```psql
+CREATE USER root WITH SUPERUSER CREATEDB CREATEROLE PASSWORD 'secretAccountPassword';
+```
+Add 
+ local   all             root                                md5
+to "/etc/postgresql/9.5/main/pg_hba.conf"
+and connect via
+ psql -U root -h localhost postgres
+ 
+#### Create new database and related user
+```psql
+CREATE SCHEMA schemaName;
+# Create a role (user) with password
+CREATE USER xxx PASSWORD 'yyy';
+# Grant privileges (like the ability to create tables) on new schema to new role
+GRANT ALL ON SCHEMA test TO xxx;
+# Grant privileges (like the ability to insert) to tables in the new schema to the new role
+GRANT ALL ON ALL TABLES IN SCHEMA test TO xxx;
+
 
