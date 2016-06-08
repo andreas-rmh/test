@@ -138,6 +138,9 @@ GRANT ALL ON SCHEMA schemaName TO userName;
 # Grant privileges (like the ability to insert) to tables in the new schema to the new role
 GRANT ALL ON ALL TABLES IN SCHEMA schemaName TO userName;
 
+# If needed grant permission to create a new database
+ALTER ROLE userName WITH CREATEDB;
+
 #### psql commands
 ```psql
 \l list databases
