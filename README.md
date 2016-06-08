@@ -123,12 +123,20 @@ and connect via
  
 #### Create new database and related user
 ```psql
-CREATE SCHEMA schemaName;
 # Create a role (user) with password
-CREATE USER xxx PASSWORD 'yyy';
+CREATE USER userName PASSWORD 'secretPassword';
+CREATE DATABASE dbName WITH OWNER userName;
+\connect dbName;
+CREATE SCHEMA schemaName;
 # Grant privileges (like the ability to create tables) on new schema to new role
-GRANT ALL ON SCHEMA test TO xxx;
+GRANT ALL ON SCHEMA schemaName TO userName;
 # Grant privileges (like the ability to insert) to tables in the new schema to the new role
-GRANT ALL ON ALL TABLES IN SCHEMA test TO xxx;
+GRANT ALL ON ALL TABLES IN SCHEMA schemaName TO userName;
 
-
+#### psql commands
+```psql
+\l list databases
+\dt list tables
+\dn list schemas
+\du list roles/users
+```
