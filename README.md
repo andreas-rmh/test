@@ -95,3 +95,16 @@ cat > ~/.vim/filetype.vim <<EOF
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
 EOF
 ```
+
+## Postgres
+### Install
+```bash
+wget –quiet https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add ACCC4CF8.asc
+
+echo “deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main” >> /etc/apt/sources.list
+
+apt-get update && apt-get upgrade
+
+apt-get install postgresql-9.5
+```
+
