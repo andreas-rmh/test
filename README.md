@@ -154,7 +154,20 @@ ALTER ROLE userName WITH CREATEDB;
 ## Ruby
 ### Install
 ```bash
-apt-get install build-essential
+apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+
+# From source
+- Download sources
+./configure 
+make && make install
+
+cd ext/zlib
+ruby extconf.rb
+make && make install
+
+- Same for ext/openssl
+
+
 # Install with ruby-install
 wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
 tar -xzvf ruby-install-0.6.0.tar.gz
