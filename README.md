@@ -142,6 +142,7 @@ GRANT ALL ON ALL TABLES IN SCHEMA schemaName TO userName;
 
 # If needed grant permission to create a new database
 ALTER ROLE userName WITH CREATEDB;
+```
 
 ### Extensions
 #### PostGIS
