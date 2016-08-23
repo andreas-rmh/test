@@ -166,6 +166,11 @@ ALTER ROLE userName WITH CREATEDB;
 \dt list tables
 \dn list schemas
 \du list roles/users
+\dx list extensions
+
+\dt SchemaName. # Show tables for named schema
+SET search_path TO SchemaName, public; # Set search_path
+SHOW search_path; # Show current schema priority
 ```
 
 ## Ruby
