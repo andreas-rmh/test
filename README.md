@@ -1,4 +1,5 @@
-# Git config
+# Git
+## Config
 
 ```bash
  git config --global user.name "John Doe"
@@ -19,6 +20,11 @@
  git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
  
  git config -l
+```
+
+## Commands
+```bash
+git log --follow -p -- file
 ```
 
 # ADB stuff
