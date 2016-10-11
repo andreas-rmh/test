@@ -117,6 +117,15 @@ apt-get install postgresql-server-dev-9.5
 ```
 For mint rosa use "trusty-pgdg"
 
+Version 9.6 on Ubuntu 16.04 LTS
+```bash
+deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+  sudo apt-key add -
+sudo apt-get update
+apt-get install postgresql-9.6
+```
+
 ### Configure
 ```bash
 su - postgres
