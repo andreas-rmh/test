@@ -1,4 +1,6 @@
 
+# SSH server config
+
 ```bash
  $ vim /etc/ssh/sshd_config
 ```
@@ -35,7 +37,21 @@
   * Hide last login  
     **PrintLastLog no**
 
-Remove Unused Network-Facing Services
+# Remove Unused Network-Facing Services
 ```bash
  $ netstat -tulpn
+```
+
+# Secure SSH using IPTables
+To allow SSH connections only from 192.168.0.20
+```bash
+ $ sudo iptables -A INPUT -p tcp -m state --state NEW --source 192.168.0.20 --dport 22 -j ACCEPT
+```
+Disable SSH connection from all other hosts
+```bash
+ $ sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+```
+Save new rules
+```bash
+ $ sudo iptables-save > /etc/iptables/rules.v4
 ```
