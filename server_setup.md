@@ -47,6 +47,10 @@ To allow SSH connections only from 192.168.0.20
 ```bash
  $ sudo iptables -A INPUT -p tcp -m state --state NEW --source 192.168.0.20 --dport 22 -j ACCEPT
 ```
+To allow SSH connections from certain IP range
+```bash
+ $ iptables -A INPUT -i eth0 -s 192.168.0.0/16 -j ACCEPT
+```
 Disable SSH connection from all other hosts
 ```bash
  $ sudo iptables -A INPUT -p tcp --dport 22 -j DROP
