@@ -5,7 +5,7 @@
  $ vim /etc/ssh/sshd_config
 ```
 * Change port  
-  **Port 2200**
+  **Port 220**
   
 * Only use protocol 2  
   **Protocol 2**
@@ -55,6 +55,12 @@ Disable SSH connection from all other hosts
 ```bash
  $ sudo iptables -A INPUT -p tcp --dport 22 -j DROP
 ```
+Disable outgoing SSH connections
+```bash
+ $ iptables -A OUTPUT -p tcp --dport 22 -j DROP
+ $ iptables -A OUTPUT -p tcp --dport 222 -j DROP
+```
+
 Save new rules
 ```bash
  $ sudo iptables-save > /etc/iptables/rules.v4
