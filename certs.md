@@ -67,7 +67,7 @@ Use Qualys SSL Labs Report: https://www.ssllabs.com/ssltest/analyze.html?d=examp
 ```bash
  $ sudo crontab -e
 ```
-** Add the following lines:
+**Add the following lines:**
 ```
  crontab entry
  30 2 * * 1 /usr/local/sbin/certbot-auto renew >> /var/log/le-renew.log
