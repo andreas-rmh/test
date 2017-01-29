@@ -67,12 +67,13 @@ Use Qualys SSL Labs Report: https://www.ssllabs.com/ssltest/analyze.html?d=examp
 ```bash
  $ sudo crontab -e
 ```
-# Add the following lines:
+** Add the following lines:
 ```
  crontab entry
  30 2 * * 1 /usr/local/sbin/certbot-auto renew >> /var/log/le-renew.log
  35 2 * * 1 /etc/init.d/nginx reload
 ```
 
+---
 
 [Source](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
