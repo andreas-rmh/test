@@ -1,4 +1,10 @@
 # Git
+
+## Commands
+```bash
+git log --follow -p -- file
+```
+
 ## Config
 
 ```bash
