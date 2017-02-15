@@ -2,7 +2,9 @@
 
 ## Commands
 ```bash
-git log --follow -p -- file
+$ git log --follow -p -- file
+
+$ git fetch -p # Prunes all stale references
 ```
 
 ## Config
