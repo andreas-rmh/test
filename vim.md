@@ -47,6 +47,8 @@ syntax on            " syntax highlighting
 
 set splitright
 set splitbelow
+
+set encoding=utf-8
 ```
 
 ## Shortcuts
