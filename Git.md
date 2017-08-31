@@ -36,12 +36,11 @@ $ git fetch -p # Prunes all stale references
  git config --global alias.unpublish '!git push origin :$(git branch-name)'
  
  git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
- 
+ git config --global alias.bra 'branch -a'
  
 # Find file
 git config --global alias.f '!git ls-files | grep -i'
 git config --global alias.grep 'grep -Ii'
-git config --global alias.
  
  git config -l
 ```
