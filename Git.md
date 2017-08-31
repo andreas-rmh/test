@@ -26,6 +26,13 @@ $ git fetch -p # Prunes all stale references
 
  git config --global alias.lgga 'log --graph --decorate --oneline --all' # --all, will show all the branches instead of just the current one
  git config --global alias.lgg 'log --graph --decorate --oneline' 
+ 
+ git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+ git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
+ git config --global alias.lds 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+ git config --global alias.ld 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative'
+# git config --global alias. 
+ 
  git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
  
  git config -l
