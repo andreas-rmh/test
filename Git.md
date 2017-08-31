@@ -32,10 +32,8 @@ $ git fetch -p # Prunes all stale references
  git config --global alias.lds 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
  git config --global alias.ld 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative'
  
- publish = !git push -u origin $(git branch-name) #push current branch to remote server
-
-    unpublish = !git push origin :$(git branch-name) #delete current branch on remote server
- 
+ git config --global alias.publish = '!git push -u origin $(git branch-name)' #push current branch to remote server
+ git config --global alias.unpublish = '!git push origin :$(git branch-name)' #delete current branch on remote server
  
  git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
  
