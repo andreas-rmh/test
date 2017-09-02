@@ -32,9 +32,6 @@ $ git fetch -p # Prunes all stale references
  git config --global alias.lds 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
  git config --global alias.ld 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative'
  
- git config --global alias.publish '!git push -u origin $(git branch-name)'
- git config --global alias.unpublish '!git push origin :$(git branch-name)'
- 
  git config --global alias.df 'diff-tree --no-commit-id --name-only -r'
  git config --global alias.bra 'branch -a'
  
