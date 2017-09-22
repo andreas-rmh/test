@@ -1,57 +1,84 @@
-#Converting Using OpenSSL
+# Converting Using OpenSSL
 
 These commands allow you to convert certificates and keys to different formats to make them compatible with specific types of servers or software.
 
-Convert a DER file (.crt .cer .der) to PEM
+_Convert a DER file (.crt .cer .der) to PEM_
+```bash
 openssl x509 -inform der -in certificate.cer -out certificate.pem
-Convert a PEM file to DER
+```
+_Convert a PEM file to DER_
+```bash
 openssl x509 -outform der -in certificate.pem -out certificate.der
-Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to PEM
+```
+_Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to PEM_
+```bash
 openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes
+```
 
 You can add -nocerts to only output the private key or add -nokeys to only output the certificates.
 Convert a PEM certificate file and a private key to PKCS#12 (.pfx .p12)
+```bash
 openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
-Convert PEM to CRT (.CRT file)
+```
+_Convert PEM to CRT (.CRT file)_
+```bash
 openssl x509 -outform der -in certificate.pem -out certificate.crt
-OpenSSL Convert PEM
+```
+__OpenSSL Convert PEM__
 
-Convert PEM to DER
+_Convert PEM to DER_
+```bash
 openssl x509 -outform der -in certificate.pem -out certificate.der
-Convert PEM to P7B
+```
+_Convert PEM to P7B_
+```bash
 openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer
-Convert PEM to PFX
+```
+_Convert PEM to PFX_
+```bash
 openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
-OpenSSL Convert DER
+```
+__OpenSSL Convert DER__
 
-Convert DER to PEM
+_Convert DER to PEM_
+```bash
 openssl x509 -inform der -in certificate.cer -out certificate.pem
-OpenSSL Convert P7B
+```
+__OpenSSL Convert P7B__
 
-Convert P7B to PEM
+_Convert P7B to PEM_
+```bash
 openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
-Convert P7B to PFX
+```
+_Convert P7B to PFX_
+```bash
 openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
 
 openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile CACert.cer
-OpenSSL Convert PFX
+```
+__OpenSSL Convert PFX__
 
 Convert PFX to PEM
+```bash
 openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes
-Generate rsa keys by OpenSSL
+```
+__Generate rsa keys by OpenSSL__
 
-Using OpenSSL on the command line you’d first need to generate a public and private key, you should password protect this file using the -passout argument, there are many different forms that this argument can take so consult the OpenSSL documentation about that.
+  Using OpenSSL on the command line you’d first need to generate a public and private key, you should password prote ct this   file using the -passout argument, there are many different forms that this argument can take so consult the OpenSSL         documentation about that.
+  
 openssl genrsa -out private.pem 1024
 This creates a key file called private.pem that uses 1024 bits. This file actually have both the private and public keys, so you should extract the public one from this file:
 openssl rsa -in private.pem -out public.pem -outform PEM -pubout
 
 or
-
+```bash
 openssl rsa -in private.pem -pubout > public.pem
-
+```
 or
-
+```bash
 openssl rsa -in private.pem -pubout -out public.pem
+```
+
 You’ll now have public.pem containing just your public key, you can freely share this with 3rd parties. You can test it all by just encrypting something yourself using your public key and then decrypting using your private key, first we need a bit of data to encrypt:
 Example file :
 echo 'too many secrets' > file.txt
