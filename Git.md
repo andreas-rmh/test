@@ -24,6 +24,8 @@ $ git fetch -p # Prunes all stale references
  git config --global alias.unstage 'reset HEAD --'
  git config --global alias.last 'log -1 HEAD'
 
+ git config --global alias.pulla '!git pull && git submodule update --init --recursive'
+
  git config --global alias.lgga 'log --graph --decorate --oneline --all' # --all, will show all the branches instead of just the current one
  git config --global alias.lgg 'log --graph --decorate --oneline' 
  
