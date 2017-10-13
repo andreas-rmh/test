@@ -4,8 +4,15 @@ Create a database for Crowd to store data in (e.g. crowd). For a UTF-8 encoded d
 
 - Create user
 ```SQL
-create database <DB_NAME> character set utf8 collate utf8_bin;
+CREATE DATABASE <DB_NAME> CHARACTER SET utf8 COLLATE utf8_bin;
 
+# 5.7.6 and above
+CREATE USER IF NOT EXISTS 'user'@'localhost' IDENTIFIED BY 'password';
+
+# Version below 5.7.6)
+GRANT ALL ON `<DB_NAME>`.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+
+---
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
 FLUSH PRIVILEGES;
